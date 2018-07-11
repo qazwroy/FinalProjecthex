@@ -1,0 +1,41 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<html> 
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>공지사항 글쓰기</title>
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+		<style>
+
+		</style>
+	</head>
+	<body>
+		<%@include file="./adminpage.jsp"%>
+		<div id="main">
+		<h2>- 관리자 페이지 -</h2>
+
+					<회원관리> 
+		'슈마니커'에 등록된 회원의 정보 확인
+					회원 검색 
+					회원 상태변경 
+					회원 삭제 
+		
+					<후기관리>
+		물품 구매자들이 구매한 상점에 대해 
+				작성한 후기들을 조회
+					후기 검색
+					후기 조회
+					후기 삭제
+		
+					<공지사항>
+				'슈마니커' 공지사항 
+					공지사항 등록
+					공지사항 변경
+					공지사항 상세보기
+					공지사항 삭제
+		</div>
+	</body>
+	<script>
+
+	</script>
+</html>

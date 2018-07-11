@@ -1,0 +1,178 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<script src="http://code.jquery.com/jquery-3.1.0.min.js"></script>
+	<title>Insert title here</title>
+	<style>	
+		#back{
+			background-color: black;
+			margin: -1%;  
+		}
+	
+		#div1{
+			width: 50%;
+			height: 20%;
+			margin-left: 72%;
+			margin-top: 1%;
+			
+			
+		}
+			
+		#div1 a{
+			position: static;			
+			cursor: pointer;
+			color: black;
+			font-size: 20px;
+			text-decoration: none;	
+			text-align:center;
+			color: white;				
+		}
+		#div1 a:hover {
+			background-color: white;			
+			font-size: 20px;
+			color: black;
+			text-decoration: none;
+		}
+		
+		#div3{
+			width: 50%;
+			height: 20%; 
+			margin-left: 85%;
+			margin-top: 1%;
+		}
+		#div3 a{
+			position: static;			
+			cursor: pointer;
+			color: black;
+			font-size: 20px;
+			text-decoration: none;	
+			text-align:center;
+			color: white;				
+		}
+		#div3 a:hover {
+			background-color: white;			
+			font-size: 20px;
+			color: black;
+			text-decoration: none;
+		}
+		
+		#select{
+			margin-top: 0.5%;
+			
+		}		
+		
+		#mainimg{
+			position: absolute;
+			color: white;
+			margin-left: 1%;
+			
+		}
+		#div2{
+			margin-left: 15%;			
+			top: 1%;
+			border-bottom: solid 1px black;
+			
+		}
+		#div2 a{
+			position: static;			
+			cursor: pointer;
+			color: white;
+			font-size: 20px;
+			text-decoration: none;	
+			text-align:center;	
+		}
+		#div2 a:hover {
+			background-color: white;
+			color: black;			
+			font-size: 20px;
+			text-decoration: none;
+		}
+		#div2 p{
+			margin-left: 12%;
+			position: absolute;
+			margin-top: -1.5%;
+		}
+		#mainimg{
+			cursor: pointer;
+		}
+		button{
+			cursor: pointer;
+		}
+		#selbtn{
+			border: 0;
+			background-color: black;
+			color: white;
+		}
+		#selbtn:hover {
+			background-color: white;
+			color: black;
+		}
+	</style>
+</head>
+<body style="overflow-x:hidden; overflow-y:auto;">
+	<div id="back">
+	<!-- img id="mainimg"  src="resources/img.jpg" width="200px;" onclick="location.href='./'"> -->
+	<h2 id="mainimg" onclick="location.href='./'"> 슈마니커</h2>
+		
+	
+	<c:if test="${sessionScope.loginId == null}">
+	<div id="div3">		
+		<a href="./joinForm">회원가입</a>
+		<a href="./index">로그인</a>
+		<a href="#">공지사항</a><br/>
+	</div>	
+	</c:if>
+	
+	<c:if test="${sessionScope.loginId != null}">
+	<div id="div1">		
+		<a href="./logout">로그아웃</a>
+		<a href="./mypage?id='${sessionScope.loginId}'">마이페이지</a>
+		<a href="#">공지사항</a>
+		<a href="./RequestList">요청게시판</a>
+		<a href="#">찜목록</a><br/>
+	</div>	
+	</c:if>
+	
+	<c:if test="${sessionScope.loginId == 'admin'}">
+	<div id="div1">		
+		<a href="adminpage">관리자 페이지</a>
+		<a href="#">로그아웃</a>
+		<a href="#">마이페이지</a>
+		<a href="#">공지사항</a>
+		<a href="#">요청게시판</a>
+		<a href="#">찜목록</a><br/>
+	</div>	
+	</c:if>
+	
+	
+	<div id="div2">
+		<a href="category">카테고리</a>
+		<a href="speller">맞춤 상품</a>			
+		<p><input id="select" type="text"/><button id="selbtn">검색</button></p>
+	</div>
+	</div>
+	
+</body>
+<script>
+
+	
+/* 	$("#select").click(function() {
+		if($("#selbtn").css("diplay")=="none"){
+			$("#selbtn").css("diplay", "block");
+		}else{
+			$("#selbtn").css("diplay")=="none");
+		};
+	});
+	 */
+	
+	
+
+
+	
+	
+</script>
+</html>

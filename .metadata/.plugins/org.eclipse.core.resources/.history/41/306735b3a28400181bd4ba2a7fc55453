@@ -1,0 +1,88 @@
+package com.spring.service;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import org.apache.ibatis.session.SqlSession;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.spring.dao.BoardInter;
+import com.spring.dto.CartDTO;
+@Service
+public class BoardService {
+
+	private org.slf4j.Logger logger = LoggerFactory.getLogger(this.getClass());
+	
+	@Autowired
+	SqlSession sqlSession;
+	BoardInter b_inter;
+	
+	
+	//찜 리스트
+		public HashMap<String, Object> mycart(String id) {
+			logger.info("찜 목록 리스트 요청");
+			b_inter = sqlSession.getMapper(BoardInter.class);
+			HashMap<String , Object> map = new HashMap<String, Object>();
+			map.put("mycart", b_inter.mycart(id));
+			return map;
+		}
+
+	public HashMap<String, Integer> cartdel(String cartdel) {
+		logger.info("찜 삭제 ");
+		b_inter = sqlSession.getMapper(BoardInter.class);
+		HashMap<String, Integer> map = new HashMap<String, Integer>();
+		int success = b_inter.cartdel(cartdel);
+		if(success>0) {
+		logger.info("success : "+success);
+		map.put("success", success);	
+		}
+		return map;
+	}
+
+	//리뷰리스트 출력
+	public HashMap<String, Object> reviewList(String idx) {
+		logger.info("리뷰리스트 요청");
+		b_inter = sqlSession.getMapper(BoardInter.class);
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("reviewList", b_inter.reviewList(idx));
+		return map;
+	}
+
+
+	public HashMap<String, Object> reviewWrite(HashMap<String, String> params) {
+		b_inter = sqlSession.getMapper(BoardInter.class);
+		HashMap<String, Object>map = new HashMap<>();
+		ShopReplyDTO dto = new ShopReplyDTO();
+		dto.setMem_id(params.get("mem_id"));
+		dto.setSreply_content(params.get("reviewContent"));
+		dto.setShop_idx(Integer.parseInt((params.get("shop_idx"))));
+		int success = b_inter.reviewWrite(dto);
+		map.put("success", success);
+		return map;
+	}
+
+	public HashMap<String, Integer> reviewDel(String del) {
+		logger.info("찜 삭제 ");
+		b_inter = sqlSession.getMapper(BoardInter.class);
+		HashMap<String, Integer> map = new HashMap<String, Integer>();
+		int success = b_inter.reviewDell(del);
+		if(success>0) {
+		logger.info("success : "+success);
+		map.put("success", success);	
+		}
+		return map;
+	}
+
+
+	//리뷰리스트 출력
+	public HashMap<String, Object> reviewList() {
+		logger.info("리뷰리스트 요청");
+		b_inter = sqlSession.getMapper(BoardInter.class);
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("reviewList", b_inter.reviewList());
+		return map;
+	}
+}

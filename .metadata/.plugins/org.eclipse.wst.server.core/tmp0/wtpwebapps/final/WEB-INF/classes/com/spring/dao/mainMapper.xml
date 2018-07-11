@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<!-- namespace=연결되는 인터페이스 -->    
+<mapper namespace="com.spring.dao.MainInter">
+
+	<!-- 메인리스트 출력 -->
+	<select id="getMainList" resultType="com.spring.dto.ProductDTO">
+		SELECT i.img_main, p.pro_name, p.pro_size, p.pro_price FROM ProductImg i , Product p  WHERE i.pro_idx = p.pro_idx
+	</select>
+	
+	<!-- 멤버 상점개설 여부 상태값 얻기 -->	
+	<select id="getMemShopState" resultType="String">
+		SELECT mem_shop FROM member WHERE mem_id = #{param1}
+	</select>
+	
+	<!-- 상점명 입력값 넣기 -->
+	<insert id="setShopName">
+		INSERT INTO shop(shop_idx, shop_name, mem_id) VALUES(shop_idx_seq.NEXTVAL, #{param1}, #{param2})
+	</insert>
+	
+	<!-- 상점명 중복값 확인 -->
+	<select id="shopOverlay" resultType="String">
+		SELECT shop_name FROM shop WHERE shop_name = #{param1}
+	</select>
+	
+	<!-- 상점개설 여부 상태값 수정 -->
+	<update id="upShopState">
+		UPDATE member SET mem_shop = 1 WHERE mem_id = #{param1}
+	</update>
+	
+	<!-- 개인상점 정보 출력 -->
+	<select id="getShopInfo" resultType="com.spring.dto.ShopDTO">
+		SELECT shop_name, shop_sellcount, shop_date, mem_id FROM shop WHERE mem_id = #{param1}
+	</select>
+	
+	<!-- 상점인덱스 세션값 얻기 -->
+	<select id="getShopIdx" resultType="String">
+		SELECT shop_idx FROM shop WHERE mem_id = #{param1}
+	</select>
+	
+	<!-- 상품등록(이미지제외) -->
+   <insert id="proInsert" parameterType="com.spring.dto.ProductDTO" useGeneratedKeys="true" keyProperty="pro_idx" keyColumn="pro_idx">
+      INSERT INTO product(pro_idx, pro_price, pro_name, pro_memo, shop_idx, brand_idx, gender_idx, shoes_idx, mem_id, pro_size)
+         VALUES(pro_idx_seq.NEXTVAL, #{pro_price}, #{pro_name}, #{pro_memo}, 
+         #{shop_idx}, #{brand_idx}, #{gender_idx}, #{shoes_idx}, #{mem_id},#{pro_size})
+   </insert>
+   
+</mapper>

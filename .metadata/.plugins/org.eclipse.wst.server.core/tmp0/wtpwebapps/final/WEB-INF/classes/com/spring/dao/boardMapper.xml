@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<!-- namespace=연결되는 인터페이스 -->    
+<mapper namespace="com.spring.dao.BoardInter">
+
+	<!-- 찜목록 리스트 -->
+	<select id="cartlist" resultType="com.spring.dto.CartDTO">
+		select p.pro_idx, p.pro_name, p.pro_price, c.cart_date, c.mem_id from product p, cart c where p.pro_idx = c.pro_idx  And c.mem_id = #{param1}
+	</select>
+	<!-- 찜삭제 -->
+	<delete id="cartdel">
+	 	DELETE FROM cart WHERE cart_idx = #{param1}
+	 </delete>
+	<!--후기 리스트 -->
+	<select id="reviewList" resultType="com.spring.dto.ShopReplyDTO">
+	SELECT * FROM ShopReply WHERE shop_idx = #{param1}
+	</select>
+	<!-- 후기작성 -->
+	<insert id="reviewWrite" parameterType="com.spring.dto.ShopReplyDTO">
+	INSERT INTO ShopReply VALUES (SHOPREPLY_SEQ.NEXTVAL,#{sreply_content},SYSDATE,#{mem_id},#{shop_idx})
+	</insert>
+	<!--후기삭제  -->
+	<delete id="reviewDel">
+	 	DELETE FROM ShopReply 
+	 </delete>
+	
+	
+
+</mapper>
