@@ -7,10 +7,9 @@
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <title>판매자 아이디 찾기</title>
 <style type="text/css">
-	 .searchId table{
+			 .searchId table{
             	border: none;
             	border-collapse: collapse;
-            	padding: 5px 10px;
             	text-align: left;
             }   
             
@@ -27,41 +26,20 @@
             	padding: 5px 10px;
             	text-align: left;
             }   
-     
-            
-            .searchIdTitle{
-            	margin : 30px 0px 60px 0px;
-            	text-align: center;
-            	color: limegreen;
-            	font-size: 20;
-            }
-            
+        
             .searchIdTable{
             	position : fixed;
-            	top: 330px;
-            	left: 30%;
             	width:1000px;
             }
             
-            .background{
-          		position : fixed;
-            	width: 100%;
-            	height: 230px;
-            	background-color: limegreen;
-            	opacity: 0.15;
-            }
-            
+           
             .inp, #search_email{
             	height: 43px;
             }
             
              .searchId hr{
             	border:none;
-            	border:1px solid limegreen; 
-            	color: limegreen;    /* IE */
-    			border-color: limegreen;  /* 사파리 */
-   			    background-color: limegreen;   /* 크롬, 모질라 등, 기타 브라우저 */
-   			    width:66%;
+   			    width:10%;
    			    float: left;
             }
             
@@ -70,27 +48,34 @@
             	left:24%;
             	text-align: center;
             	font-weight: 600;
-            	border-style : solid;
             	height : 50px;
             	width: 150px;
-            	border-color: limegreen;
-            	background-color : limegreen;
+            	border: 0;
+				outline: 0;
+            	background-color: black;
             	color: white;
             	cursor: pointer;
             }
+             #searchIDbtn:hover {
+				background-color: white;
+				color: black;
+			}
+			.searchId h3{ 
+				margin-left: 40%;
+			}
             
 </style>
 </head>
 <body>
 	<div class = searchId>
-	<div class = searchIdTitle>
-    	<h1>아이디 찾기 (판매자)</h1>
-    </div>
+	
+    	<h3>아이디 찾기</h3>
+    
     <div class = background >
     </div>
 	<table class="searchIdTable">
 		<tr>
-			<th>이름</th>
+			<th>NAME</th>
 			<td><input class=inp type="text" name="search_userName"
 				placeholder="이름 입력란"/></td>
 		</tr>

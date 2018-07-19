@@ -6,15 +6,57 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
 <title>이메일 인증하기</title>
-<style></style>
+<style>
+	legend{
+		margin-left: 40%;
+	}
+	#mail_check{
+		margin-left: 40%;
+	}
+	#mail_button{
+		margin-left: 45%;
+	}
+	#mail_button{
+		border: 0;
+		outline: 0;
+		cursor: pointer;
+		background-color: black;
+		color: white;
+		width: 20%;
+		height: 30px; 
+		margin-left: 42%;
+	}
+	#mail_button:hover{
+		background-color: white;
+		color: black;
+	}
+	
+	
+	#mail_check_success{
+		border: 0;
+		outline: 0;
+		cursor: pointer;
+		background-color: black;
+		color: white;
+		width: 20%;
+		height: 30px; 
+		margin-left: 42%;
+	}
+	#mail_check_success:hover{
+		background-color: white;
+		color: black;
+	}
+
+</style>
 </head>
 <body>
 	<fieldset>
 		<legend>본인확인 이메일 인증</legend>
-		<input type="text" id="mail_check" name="mail_check"
-			placeholder="인증번호를 입력하세요" disabled="true" /> <input type="button"
-			id="mail_button" value="인증번호 요청" />
-	</fieldset>
+		<input style="width: 150; height: 43px" type="text" id="mail_check" name="mail_check" 
+													placeholder="인증번호를 입력하세요" disabled="true" /> </br></br>
+			<input type="button" id="mail_button" value="인증번호 요청" />
+		</fieldset>
+		</br>
 	<input type="button" id="mail_check_success" value="메일 인증 확인" />
 </body>
 <script>

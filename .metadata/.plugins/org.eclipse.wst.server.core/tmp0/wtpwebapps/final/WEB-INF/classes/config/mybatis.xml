@@ -26,13 +26,14 @@
 		<!-- 쿼리가 작성된 xml 의 위치 설정 -->
 		<!-- 해당 패키지가 없다면 오류 발생 -->
 		<property name="mapperLocations" value="classpath:com/spring/dao/*.xml"/>
-		<property name="configLocation" value="classpath:config/aliase-config.xml"/>		
+				
 	</bean>
-
-	<!-- session template -->
+	
+		<!-- 템플릿 설정 -->
 	<bean id="myBatisMapper" class="org.mybatis.spring.SqlSessionTemplate">
 		<constructor-arg index="0" ref="sqlSessionFactory"/>
 	</bean>	
+
 
 </beans>
 

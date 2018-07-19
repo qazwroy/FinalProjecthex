@@ -7,16 +7,46 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <style>
-fieldset {
+#fie {
 	text-align: center;
 	top: 200;
 	left: 350;
+	height: 70px;
+	border: 0;
 }
+	#searchID{
+		border: 0;
+		outline: 0;
+		cursor: pointer;
+		background-color: black;
+		color: white;
+		width: 20%;
+		height: 30px;
+		margin-top: 10%;
+	}
+	#searchID:hover{
+		background-color: white;
+		color: black;
+	}
+	#searchPW{
+		border: 0;
+		outline: 0;
+		cursor: pointer;
+		background-color: black;
+		color: white;
+		width: 20%;
+		height: 30px;
+	}
+	#searchPW:hover{
+		background-color: white;
+		color: black;
+	}
+
 </style>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 </head>
 <body>
-	<fieldset>
+	<fieldset id="fie">
 		<legend>찾으실 정보를 클릭하세요.</legend>
 		<input type="button" id="searchID" value="아이디 찾기" />
 		&nbsp;&nbsp;&nbsp;&nbsp; <input type="button" id="searchPW"

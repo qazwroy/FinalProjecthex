@@ -37,6 +37,8 @@
 		background-color: black;
 		color: white;
 		width: 130px;	
+		height: 30px;
+		margin-top: 2%;
 	}
 	#join:hover{
 		background-color: white;
@@ -49,6 +51,7 @@
 		background-color: black;
 		color: white;
 		width: 130px;	
+		height: 30px;
 	}
 	#search:hover {
 		background-color: white;
@@ -72,7 +75,7 @@
 			</tr>
 			<tr>
 				<th>PW</th>
-				<td><input type="password" id="userPw" placeholder="비밀번호" /></td>
+				<td><input onkeyup="enterkey()" type="password" id="userPw" placeholder="비밀번호" /></td>
 			</tr>
 			<tr>
 				<td colspan="10"><input id="join" onclick="join()" type="button" value="회원가입" /> 
@@ -83,6 +86,36 @@
 	
 </body>
 <script>
+
+function enterkey() {
+    if (window.event.keyCode == 13) {
+
+    	$.ajax({
+    		type : "post",
+    		url : "./login",
+    		data : {
+    			id : $("#userId").val(),
+    			pw : $("#userPw").val()
+    		},
+    		dataType : "json",
+    		success : function(data) {//인자 값은 서버에서 주는 메시지
+    			console.log(data);
+    			if (data.success) {
+    				alert("로그인에 성공 했습니다.");
+    				location.href = "./";
+    			} else {
+    				alert("로그인에 실패 했습니다.");
+    			}
+    		},
+    		error : function(err) {//인자 값은 서버에서 주는 에러 메시지
+    			console.log(err)
+    		}
+    	});
+    }
+}
+
+
+
 function join() {
 	location.href = "./joinForm";
 }
@@ -93,7 +126,7 @@ function search() {
 	window.name = "parentForm";
 	//window.open("open할 window", "자식창 이름", "팝업창 옵션");
 	openWin = window.open("./mem_search", "childForm",
-			"width=700, height=200, resizable = no, scrollbars = no");
+			"width=700, height=250, resizable = no, scrollbars = no");
 }
 
 $("#loginBtn").click(function() {

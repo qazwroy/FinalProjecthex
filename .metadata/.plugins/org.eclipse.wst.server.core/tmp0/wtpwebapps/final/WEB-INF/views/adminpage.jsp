@@ -5,7 +5,10 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Insert title here</title>
-	<script src="http://code.jquery.com/jquery-3.1.0.min.js"></script>
+	<!-- <script src="http://code.jquery.com/jquery-3.1.0.min.js"></script> -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+   <script src="./resources/js/paging.js" type="text/javascript"></script>
 	<style>	
 
 			.top{width:100%;height: 100px;background-color: #000;color:#fff;}
@@ -34,6 +37,7 @@
                     <li><a href="adminmem">회원관리</a></li>
                        <li><a href="adminreply">후기관리</a></li>
                        <li><a href="a_notice">공지사항</a></li>
+                       <li><a href="a_noticeList">테스트</a></li>
                        <li><a href="./adminlogout">로그아웃</a></li>
                     </ul>
                </div>

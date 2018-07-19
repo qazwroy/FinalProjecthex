@@ -7,31 +7,70 @@
 	<title>Insert title here</title>
 	<script src="http://code.jquery.com/jquery-3.1.0.min.js"></script>
 	<style>	
-				table{
+				#membercontent{
 				border-top: 1px solid #444444;
 				border-spacing: 20px;
 				border-collapse: collapse;
 				padding: 10 10;
 
 				}
-				td,th{
-				border-bottom: 1px solid #444444;
-				border-collapse: collapse;
-				padding: 12px;
-				font-size:13
-				}
+				#membercontent td,th{
+		            border-bottom: 1px solid #444444;
+		            border-collapse: collapse;
+		            padding: 12px;
+		            font-size:13;
+		            text-align: center;		            
+	            }
+	           /*   #tr1{
+		            cursor: pointer;
+		         } */
+	            #tr1:hover {
+	               background-color: #EAEAEA;
+	            }
 
 				#content{
 				top:10%;
 				margin:2%;
-				margin-left: 15%;
+				margin-left: 14%;
 				}
 				#field{
-				display: inline-block;
+		            display: inline-block;
+		            border: 0;
+		            margin-left: -2%;
+		            
+	            }
+	          /*   #membercontent th{
+	            	background-color: black;
+	            	color: white;
+	            } */
+	            #membercontent{
+	            	width: 228%;
+	            }
+	            #sur{
+					border: 0;
+					outline: 0;
+					cursor: pointer;
+					background-color: black;
+					color: white;		
+				}
+				#sur:hover{
+					background-color: white;
+					color: black;
+				}				
+				.replydel{
+					border: 0;
+					outline: 0;
+					cursor: pointer;
+					background-color: black;
+					color: white;		
+				}
+				.replydel:hover{
+					background-color: white;
+					color: black;
 				}
 	</style>
-	</head>
-<body>
+	</head> 
+<body style="overflow-x:hidden; overflow-y:auto;">
 <c:if test="${sessionScope.adminId != null}">
 	<%@include file="./adminpage.jsp"%>
 
@@ -40,38 +79,38 @@
 		<h5>슈마니커에 등록된 상점의 후기를 조회, 삭제하실 수 있습니다.</h5>
 		<form action="replysearch">
 		<fieldset id="field">
-			<legend align="center">후기 관리</legend>
-			<select id="key" name = "keyField"> 
-					<option value="mem_id" >회원이름</option>
-					<option value="sreply_content">내용</option>
-				</select>
-				<input type="text" name="keyWord" placeholder="검색어를 입력하시오"/>
-				<input type="submit" value="검색">
-		</form>	
-		<table id="membercontent">
-			<tr>
-				<th>후기번호</th>
-				<th>작성회원</th>
-				<th>내용</th>
-				<th>작성날짜</th>			
-				<th>작성된상점</th>
-				<th>별점</th>
-				<th>삭제</th>
-			</tr>
-			
-			<c:forEach items="${adminreply}" var="dto">
-			
-			<tr>
-				<td>${dto.sreply_idx}</td>
-				<td>${dto.mem_id}</td>
-				<td>${dto.sreply_content}</td>
-				<td>${dto.sreply_date}</td>
-				<td>${dto.shop_idx}</td>
-				<td>${dto.sreply_star }</td>
-				<td><input id="${dto.sreply_idx}" type=button  class="replydel" value=삭제 /></td>
-			</tr>
-			</c:forEach>
-		</table>
+				<legend align="center"></legend>
+				<select id="key" name = "keyField"> 
+						<option value="mem_id" >회원이름</option>
+						<option value="sreply_content">내용</option>
+					</select>
+					<input type="text" name="keyWord" placeholder="검색어를 입력하시오"/>
+					<input id="sur" type="submit" value="검색">
+			</form>	
+			<table id="membercontent">
+				<tr>
+					<th>후기번호</th>
+					<th>작성회원</th>
+					<th>내용</th>
+					<th>작성날짜</th>			
+					<th>작성된상점</th>
+					<th>별점</th>
+					<th>삭제</th>
+				</tr>
+				
+				<c:forEach items="${adminreply}" var="dto">
+				
+				<tr id="tr1">
+					<td>${dto.sreply_idx}</td>
+					<td>${dto.mem_id}</td>
+					<td>${dto.sreply_content}</td>
+					<td>${dto.sreply_date}</td>
+					<td>${dto.shop_idx}</td>
+					<td>${dto.sreply_star }</td>
+					<td><input id="${dto.sreply_idx}" type=button  class="replydel" value=삭제 /></td>
+				</tr>
+				</c:forEach>
+			</table>
 		</fieldset>
 </div>
 </c:if>

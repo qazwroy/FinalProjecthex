@@ -1,0 +1,151 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   <script src="http://code.jquery.com/jquery-3.1.0.min.js"></script>
+   <title>Insert title here</title>
+   <style>
+      #wrapper {
+         width: 1000px;
+         margin-left: 15%;
+         margin-top: 1%; 
+      }
+      #mainImg {
+         margin-top: 1%;
+         width: 1100px;
+         height: 300px;
+         border-bottom: 1px solid black;
+         
+      }
+      .newImg {
+         
+         width: 1200px;
+         height: 200px;
+         
+      }
+      .new {
+         
+         float: left;
+         width: 200px;
+         height: 200px;
+         border: 1px solid black;
+         margin: 1%;
+      }
+      .new:hover {
+         cursor: pointer;
+         background-color: black;
+      }
+      #oper{
+         cursor: pointer;
+      }
+      #oper:hover {         
+         cursor: pointer;
+      }
+      #mainImg a:hover{
+         background-color: #EAEAEA;
+      }
+      
+      #sel3{
+         margin-left: 0%;  
+         margin-top: 0%;      
+         position: absolute;
+         background-color: black;
+         color: white;
+         outline: 0;
+         border: 0;
+         font-size: 15px;  
+      }
+      #sel3:hover{
+         background-color: white;
+         cursor: pointer;
+         color: black;
+         outline: 0;
+         border: 0;
+      }
+   </style>
+</head>
+<body>
+   <%@include file="./head.jsp"%>
+   
+   <div id="wrapper">
+
+      <div id="mainImg" style="height: 200;" class="cycle-slideshow"; data-cycle-loader="wait";    data-cycle-timeout="1000">
+      
+         <a><input type="checkbox" onclick="checkd()" id="oper" value="nike">나이키</a>
+         <a><input type="checkbox" onclick="checkd()" id="oper" value="adidas">아디다스</a>
+         <a><input type="checkbox" onclick="checkd()" id="oper" value="fila">휠라</a>
+         <a><input type="checkbox" onclick="checkd()" id="oper" value="reebok">리복</a>
+         <a><input type="checkbox" onclick="checkd()" id="oper" value="descente">데쌍트</a></br></br></br></br>
+         
+         
+         <a><input type="checkbox" onclick="checkd()" id="oper" value="남">남</a>
+         <a><input type="checkbox" onclick="checkd()" id="oper" value="여">여</a></br></br></br></br>
+         
+         <a><input type="checkbox" onclick="checkd()" id="oper" value="운동화">운동화</a>
+         <a><input type="checkbox" onclick="checkd()" id="oper" value="캔버스화">캔버스화</a>
+         <a><input type="checkbox" onclick="checkd()" id="oper" value="구두">구두</a>
+         <a><input type="checkbox" onclick="checkd()" id="oper" value="샌들">샌들</a>
+         <a><input type="checkbox" onclick="checkd()" id="oper" value="하이힐">하이힐</a>
+         <a><input type="checkbox" onclick="checkd()" id="oper" value="슬리퍼">슬리퍼</a></br></br></br></br>
+               
+         <input type="button" id="sel3" value="완료" onclick="sel3()">
+      </div>
+      <br />
+      
+      
+      <h2>완료누르면 나오는 이미지들 </h2>
+      <div class="newImg">
+         <div class="new"></div>
+         <div class="new"></div>
+         <div class="new"></div>
+         <div class="new"></div>
+         <div class="new"></div>
+         
+         <div class="new"></div>
+         <div class="new"></div>
+         <div class="new"></div>
+         <div class="new"></div>
+         <div class="new"></div>
+         
+      </div>
+      <br />
+      </div>
+   
+</body>
+<script>
+$("#chkBox:checked").length ;
+
+console.log($("#oper:checked").length);
+
+$("#sel3").click(function() {
+	$("#oper:checked").length;
+});
+   /* 
+   function checkd(){
+       var checkbox = document.getElementById('oper');        
+        $('#oper:checked').each(function() { 
+           console.log($(this).val());           
+      });
+   }
+   
+   function sel3() {
+      $('#oper:checked').each(function() { 
+           console.log($(this).val());           
+      });
+   }
+ */
+ function checke() {
+	 var checkbox = document.getElementById('oper');
+	 $('#oper:checked').each(function() {
+		console.log($(this).val());
+	})
+	
+}
+
+
+
+</script>
+</html>

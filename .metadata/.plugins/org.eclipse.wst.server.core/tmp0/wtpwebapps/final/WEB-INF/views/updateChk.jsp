@@ -7,13 +7,38 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<style>
+	fieldset{
+		border: 0;
+	}
+	#upPw{
+		border: 0;
+		outline: 0;
+		cursor: pointer;
+		background-color: black;
+		color: white;		
+		margin-left: 40%;
+		margin-top: 2%;
+		width: 20%;
+		height: 30px;
+	}
+	#upPw:hover{
+		background-color: white;
+		color: black;
+	}
+	#inps{ 
+		margin-top: 5%;
+	}
+</style>
 </head>
+
 <body>
    <fieldset>
-      <legend>본인확인을 위해 비밀번호를 입력해 주세요.</legend>
-      비밀번호 확인 : <input type="password" name="updatePwChk"
-         placeholder="비밀번호 확인 요청" />
-      <button id="upPw">확인</button>
+      <!-- <legend style="text-align: center;">본인확인을 위해 비밀번호를 입력해 주세요.</legend> -->
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      비밀번호 확인 : <input id="inps" type="password" name="updatePwChk"  placeholder="비밀번호 확인 요청" />
+                </br>      
+      			<button id="upPw">확인</button>
    </fieldset>
 </body>
 <script type="text/javascript">

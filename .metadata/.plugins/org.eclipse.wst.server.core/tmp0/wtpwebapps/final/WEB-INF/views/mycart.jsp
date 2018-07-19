@@ -37,6 +37,9 @@
 		outline: 0;
 		border: 0;
 	}
+	td{
+		text-align: center;
+	}
 </style>
 
 </head>
@@ -49,7 +52,7 @@
 	
 	
 	<div id=tab>
-
+<form action="./mycart">
 	<table>
 			<thead>
 				<tr>
@@ -66,52 +69,47 @@
 				
 			</tbody>
 		</table>
+		
+</form>
 
 	</div>
 
 </body>
 <script>
-var obj = {};
-obj.dataType = "JSON";
 
-obj.error = function(e) {
-	console.log(e)
-};
 
 function buydel() {
 	$('#cart1:checked').each(function() { 
         console.log($(this).val());	        
    });
 } 
-$(document).ready(function() {
-	listPrint();
+
+var obj = {};
+obj.dataType = "JSON";
+
+obj.error = function(e) {
+   console.log(e)
+};
+
+ $(document).ready(function() {
+   listPrint();
 });
-//댓글리스트 출력
+ 
+
+
+/* //댓글리스트 출력
 function listPrint() {
-	$.ajax({
-        obj.type:"post",
-        obj.url:"./mycart",
-        obj.data:{};
-        obj.data.id = $("#mem_id").text();
-        console.log(obj.data.id);
-        success:function(data){
-           console.log(data);
-        },
-        error : function(err){
-           console.log(err);
-        }
-     });
-	/* obj.url = "./mycart";
+	obj.url = "./mycart",
 	obj.data = {
 			id : '${sessionScope.loginId}'
 	},	
-    console.log(obj.data.id);
+    console.log(obj.data.id); 
 	obj.success = function(data) {
 		console.log(data);
 		var content = "";
-		data.list.forEach(function(item, index) {
+		data.mycart.forEach(function(item, index) {
 			  content += "<tr>";
-			  content += "<td><input type='checkbox'/></td>"
+			  content += "<td><input type='checkbox' id='cart1' value="+item.cart_idx+" '/></td>'"
 	          content += "<td>"+item.pro_idx+"</td>";
 	          content += "<td>"+item.pro_name+"</td>";
 	          content += "<td>"+item.pro_price+"</td>";
@@ -124,16 +122,47 @@ function listPrint() {
 	$("#tr1").append(content);
 	}				
 		
-		ajaxCall(obj); */
-	}
+		ajaxCall(obj);
+	} */
 
+ 
+ function listPrint(mycart) {
+    	 obj.url = "./mycart",
+		obj.data = {
+				id : '${sessionScope.loginId}'
+		},	
+	    console.log(obj.data.id); 
+		obj.success = function(data) {
+			console.log(data);
+			var content = "";
+			data.mycart.forEach(function(item) {
+				  content += "<tr>";
+				  content += "<td><input type='checkbox' id='check' value='"+item.cart_idx+"'/></td>"
+		          content += "<td>"+item.pro_idx+"</td>";
+		          content += "<td>"+item.pro_name+"</td>";
+		          content += "<td>"+item.pro_price+"</td>";
+		          var date = new Date(item.cart_date);
+		          content +="<td>"+date.toLocaleDateString("ko-KR")+"</td>";
+		          content += "</tr>";
+				});
 
+		$("#tr1").empty(mycart);
+		$("#tr1").append(content);
+		}				
+			
+			ajaxCall(obj);
+		}
+
+ 
+ 
+ 
+var cartdel;
 $("#buydel").click(function(){
     $.ajax({
         type:"post",
         url:"./cartdel",
         data:{
-        	cartdel : $('#cart1').val()
+        	cartdel : $("#check:checked").val()
         },
         dataType:"JSON",
         success:function(data){

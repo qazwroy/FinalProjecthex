@@ -7,15 +7,53 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<style>
+	#pas{
+		margin-left: 40%;
+		
+	}
+	#pasform{
+		border-collapse: 10px;
+		margin-left: 5%; 
+	}
+	#pasform input{
+		margin-left: 25%;  
+		margin-top: 5%;
+	}
+	#pasform h3{
+		position: absolute;
+		margin-top: 2%;
+	}
+	#reset_pw{
+		border: 0;
+		outline: 0;
+		cursor: pointer; 
+		background-color: black;
+		color: white;
+		width: 130px;	
+		height: 50px;
+		margin-top: 8%;
+		margin-left: 37%;
+	}
+	#reset_pw:hover {
+		background-color: white;
+		color: black;
+	}
+	 
+</style>
 </head>
-<body>
-	<h2>비밀번호 재설정</h2>
-	<input type="hidden" name="mem_id" value="${mem_id}" /> 새로운 비밀번호
-	<input type="password" name="restet_pw" placeholder="새로운 비밀번호를 입력하세요." />
-	새로운 비밀번호 확인
-	<input type="password" name="reset_pw_check" placeholder="새로운 비밀번호 확인." />
-
-	<input type="button" id="reset_pw" value="비밀번호 재설정" />
+<body> 
+	<h3 id="pas">비밀번호 재설정</h3>
+	<div id="pasform">
+		<input style="width: 250; height: 43px; position:absolute; " type="hidden" name="mem_id" value="${mem_id}" /> 
+		<h3>새로운 비밀번호</h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+		<input   style="width: 30%; height: 43px; margin-top: 0%"  type="password" name="restet_pw" placeholder="새로운 비밀번호를 입력하세요." /> </br>
+		 </br> 
+		<h3>새로운 비밀번호 확인</h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<input style="width: 27.5%; height: 43px; margin-top: 0%; position:absolute;" type="password" name="reset_pw_check" placeholder="새로운 비밀번호 확인." />
+		</br>
+	</div>
+		<input type="button" id="reset_pw" value="비밀번호 재설정" />
 </body>
 <script type="text/javascript">
 	var pwReg = /^[a-z]+[a-z0-9]{7,15}$/g;

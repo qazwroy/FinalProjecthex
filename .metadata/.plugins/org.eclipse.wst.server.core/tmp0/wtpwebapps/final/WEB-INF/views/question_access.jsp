@@ -7,11 +7,26 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <style>
-fieldset {
-	text-align: center;
-	top: 200;
-	left: 350;
-}
+	fieldset {
+		text-align: center;
+		top: 200;
+		left: 350;
+	}
+
+	#q_checK_btn{
+		border: 0;
+		outline: 0;
+		cursor: pointer; 
+		background-color: black;
+		color: white;
+		width: 130px;	
+		height: 50px;
+		margin-top: 2%;
+	}
+	#q_checK_btn:hover {
+		background-color: white;
+		color: black;
+	}
 </style>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 </head>
@@ -19,8 +34,8 @@ fieldset {
 	<fieldset>
 		<legend>본인 인증 질문 및 답변</legend>
 		<input type="hidden"  id="mem_id" value="${mem_id}"/>
-		<input type="text" value="${question}" disabled="disabled"/>
-		<input type="text" id="question_text" placeholder="답변 입력"/>
+		<input style="width: 150; height: 43px" type="text" value="${question}" disabled="disabled"/>
+		<input style="width: 150; height: 43px" type="text" id="question_text" placeholder="답변 입력"/></br>
 		<input type="button" id="q_checK_btn" value="비밀번호 재설정"/>
 	</fieldset>
 </body>

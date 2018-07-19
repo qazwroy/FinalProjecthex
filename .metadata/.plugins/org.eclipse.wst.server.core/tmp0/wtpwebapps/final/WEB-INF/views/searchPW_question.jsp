@@ -79,28 +79,61 @@
             	cursor: pointer;
             }
 </style> -->
+<style>
+	.searchPwTitle h3{
+		margin-left: 40%;
+	}
+	.searchPwTable{
+		margin-left: 0%;
+		border-spacing: 5px;
+	} 
+	.searchPwTable td{
+		border: 0;
+	}
+	#searchPWbtn{
+           	position:absolute;
+           	left:24%;
+           	text-align: center;
+           	font-weight: 600;
+           	height : 50px;
+           	width: 150px;
+           	border: 0;
+			outline: 0;
+           	background-color: black;
+           	margin-left: 2%; 
+           	margin-top: 1%;  
+           	color: white;
+           	cursor: pointer;
+           }
+            #searchPWbtn:hover {
+			background-color: white;
+			color: black;
+		}
+		.searchPwTable{
+            	position : fixed;
+            	width:1000px;
+            }
+</style>
 </head>
 <body>
 	<div class = searchPw>
 	<div class = searchPwTitle>
-    	<h1>비밀번호 찾기 (판매자)</h1>
+    	<h3>비밀번호 찾기</h3>
     </div>
     <div class = background >
     </div>
 		<table class = searchPwTable>
 			<tr>
-				<th>아이디 </th>
-				<td><input type="text" class=inp name="search_userId" placeholder="아이디 입력란"/></td>
+				<th>ID</th>
+				<td><input style="width: 150; height: 43px" type="text" class=inp name="search_userId" placeholder="아이디 입력란"/></td>
 			</tr>
 			<tr>
-				<th>이름</th>
+				<th>NAME</th>
 				<td>
-					<input class=inp type="text" name="search_userName" placeholder="이름 입력란"/> </td>
+					<input style="width: 150; height: 43px" class=inp type="text" name="search_userName" placeholder="이름 입력란"/> </td>
 			</tr>
 			<tr>
-				<td colspan="2">
-					<hr/>
-				</td>
+				
         	</tr>
 			<tr>
 				<td colspan="2"><input type="button" id="searchPWbtn"

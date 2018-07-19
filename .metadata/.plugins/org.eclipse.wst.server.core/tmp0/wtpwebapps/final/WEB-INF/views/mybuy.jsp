@@ -38,6 +38,9 @@
 		#tr1 tr:hover {
 			background-color: #EAEAEA;
 		}
+		td{
+			text-align: center;
+		}
 </style>
 </head>
 <body>
@@ -47,7 +50,7 @@
 	<div id="tab">
 		<table>
 			<thead>
-				<tr id="tr1">
+				<tr>
 					<th>주문번호</th>
 					<th>상품정보</th>
 					<th>구매일</th>
@@ -56,26 +59,7 @@
 			</thead>
 			<tbody id="tr1">
 			
-				<c:forEach items="${product}">
-					<tr>
-						<th><input type="checkbox"/></th>
-						<th>1번</th>
-						<th>나이키</th>
-						<th>${pro.xxx}</th>
-						<th>
-							<button id="review">후기작성</button>
-						</th>
-					</tr>
-				</c:forEach>
 				
-				<tr>
-						<th>1번</th>
-						<th>나이키</th>
-						<th>21313</th>
-						<th>
-							<button id="review">후기작성</button>
-						</th>
-					</tr>
 				
 			</tbody>		
 		</table>
@@ -85,4 +69,54 @@
 	
 	
 </body>
+<script>
+var obj = {};
+obj.dataType = "JSON";
+
+obj.error = function(e) {
+   console.log(e)
+};
+
+ $(document).ready(function() {
+   listPrint();
+});
+ 
+ 
+ 
+ function listPrint(mybuy) {
+	 obj.url = "./mybuy",
+	obj.data = {
+			id : '${sessionScope.loginId}'
+	},	
+    console.log(obj.data.id); 
+	obj.success = function(data) {
+		console.log(data);
+		var content = "";
+		data.mybuy.forEach(function(item) {
+			  content += "<tr>";
+	          content += "<td>"+item.wallet_idx+"</td>";
+	          content += "<td>"+item.pro_name+"</td>";
+	          var date = new Date(item.wallet_date);
+	          content +="<td>"+date.toLocaleDateString("ko-KR")+"</td>";
+	          content += "</tr>";
+			});
+
+	$("#tr1").empty(mybuy);
+	$("#tr1").append(content);
+	}				
+		
+		ajaxCall(obj);
+	}
+ 
+ 
+ 
+ 
+ 
+ function ajaxCall(param) {
+		console.log(param);
+		$.ajax(param);
+	}
+
+
+</script>
 </html>

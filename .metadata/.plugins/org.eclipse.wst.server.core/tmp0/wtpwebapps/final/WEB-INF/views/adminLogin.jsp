@@ -48,7 +48,7 @@
 	   #adminloginBtn:hover{
 	      background-color: white;
 	      color: black;
-   		}
+	   }
 		
 	</style>	
 </head>
@@ -71,10 +71,10 @@
 				<th>PW</th>
 				<td><input type="password" id="admin_Pw" placeholder="관리자 비밀번호" /></td>
 			</tr>	
-			 <!-- <tr>
+		<!-- 	 <tr>
 				<td colspan="3">
 				<input onclick="join()" type="button"	value="회원가입" /> 
-			</tr>  -->
+			</tr>  --> 
 		</table>
 	</div>
 	</c:if>

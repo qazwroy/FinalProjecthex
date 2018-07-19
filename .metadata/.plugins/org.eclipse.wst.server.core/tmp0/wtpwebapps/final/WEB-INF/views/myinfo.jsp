@@ -8,20 +8,105 @@
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <style>
+	#tab1{
+			margin-left: 38%;
+		    border-spacing: 5px;
+	}
+	#update_start{
+		border: 0;
+		outline: 0;
+		cursor: pointer;
+		background-color: black;
+		color: white;
+		height: 30px;
+		width: 35%; 
+	}
+	#update_start:hover{
+		background-color: white;
+		color: black;
+	}
+	#update_end2{
+		border: 0;
+		outline: 0;
+		cursor: pointer;
+		background-color: black;
+		color: white;
+		height: 30px;
+		width: 30%;
+	}
+	#update_end2:hover{
+		background-color: white;
+		color: black;
+	}
+	#tab1 h3{
+		margin-left: 10%;
+	}
+	#after{
+		margin-left: -10%;
+	}
+	#path{
+		border: 0;
+		outline: 0;
+		cursor: pointer;
+		background-color: black;
+		color: white;
+	}
+	#path:hover{
+		background-color: white;
+		color: black;
+	}
+	
+	#update_success{
+		border: 0;
+		outline: 0;
+		cursor: pointer;
+		background-color: black;
+		color: white;
+		width: 20%;
+		height: 30px;
+		margin-left: -15%; 
+	}
+	#update_success:hover{
+		background-color: white;
+		color: black;
+	}
+	
+	#update_end1{
+		border: 0;
+		outline: 0;
+		cursor: pointer;
+		background-color: black;
+		color: white;
+		width: 20%;
+		height: 30px;
+	}
+	#update_end1:hover{
+		background-color: white;
+		color: black;
+	}
+	
+	#size{
+		margin-left: 1.5%;
+	}
+	
 </style>
 </head>
 <body>
+
+<%@include file="./mypage.jsp"%>
+
+	
+
+<div id="tab1">
    <!-- 바디 전체를 감싸는 updateForm 클래스 -->
-   <div class=updateForm>
-      <div class=userUpdateTitle>
-         <br />
-         <br />
-         <h1>회원 정보 수정</h1>
-      </div>
-      <br />
+   
+         
+         <h3>회원 정보 수정</h3>
+    
+   
       <!-- 기본 정보 뷰 -->
       <table class=updateFormTable id="before">
-         <br />
+         
          <tr>
             <td colspan="3"><hr /></td>
          </tr>
@@ -41,7 +126,7 @@
          <tr>
             <td>회원 주소</td>
             <td><input class=inp type="text" id="beforeAddr"
-               disabled="true" style="width: 70%" /></td>
+               disabled="true" style="width: 100%" /></td>
          </tr>
          <tr>
             <td>회원 EMAIL</td>
@@ -59,7 +144,7 @@
          </tr>
 
          <tr>
-            <td colspan="2" style="text-align: right">
+            <td colspan="2" style="text-align: center">
                <button id="update_start">정보 수정하기</button>
                <button id="update_end2">취소</button>
             </td>
@@ -96,7 +181,7 @@
          <tr>
             <td>신발 사이즈</td>
             <td><input type="text" id="sizeview" name="sizeview"
-               style="width: 200" placeholder="사이즈를 선택하세요." disabled="true" /><select
+               style="width: 171.5" placeholder="사이즈를 선택하세요." disabled="true" /><select
                id="size">
                   <option value="0">신발 사이즈를 선택하세요.</option>
                   <option value="1">직접입력</option>
@@ -158,13 +243,14 @@
                id="after_phone" placeholder="휴대폰 번호 입력란" /></td>
          </tr>
          <tr>
-            <td colspan="2" style="text-align: right">
+            <td colspan="2" style="text-align: center;" id="update_1">
                <button id="update_success">저장</button>
                <button id="update_end1">취소</button>
             </td>
          </tr>
       </table>
-   </div>
+  </div> 
+  
 </body>
 <script>
    var obj = {};//초기화   
@@ -265,7 +351,7 @@
                   //window.open("open할 window", "자식창 이름", "팝업창 옵션");
                   openWin = window
                         .open("./updateChk", "childForm",
-                              "width=550, height=250, resizable = no, scrollbars = no");
+                              "width=550, height=150, resizable = no, scrollbars = no, left=450, top=300");
 
                });
 

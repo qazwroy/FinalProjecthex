@@ -83,7 +83,6 @@
 	 <update id="a_noticeUpdate" parameterType="com.spring.dto.NoticeBoardDTO">
 	 	UPDATE NoticeBoard SET notice_subject = #{notice_subject}, notice_content = #{notice_content}
 			WHERE notice_idx = #{notice_idx}	
-	 
 	 </update>
 	 
 	 <delete id="a_noticeDelete">
@@ -93,6 +92,8 @@
 	 <update id="upHit">
 	 	UPDATE NoticeBoard SET bHit = bHit+1 WHERE notice_idx = #{param1}
 	 </update>
+	 
+	 
 
 	
 </mapper>

@@ -77,27 +77,62 @@
             	background-color : limegreen;
             	color: white;
             	cursor: pointer;
-            } -->
+            } 
+</style>-->
+<style>
+	.searchPwTitle h3{
+		margin-left: 40%;
+	}
+	.searchPwTable{
+		margin-left: 0%;
+		border-spacing: 5px;
+	} 
+	.searchPwTable td{
+		border: 0;
+	}
+	#searchPWbtn{
+           	position:absolute;
+           	left:24%;
+           	text-align: center;
+           	font-weight: 600;
+           	height : 50px;
+           	width: 150px;
+           	border: 0;
+			outline: 0;
+           	background-color: black;
+           	margin-left: 2%; 
+           	margin-top: 1%;  
+           	color: white;
+           	cursor: pointer;
+           }
+            #searchPWbtn:hover {
+			background-color: white;
+			color: black;
+		}
+		.searchPwTable{
+            	position : fixed;
+            	width:1000px;
+            }
 </style>
 </head>
 <body>
 	<div class=searchPw>
 		<div class=searchPwTitle>
-			<h1>비밀번호 찾기</h1>
+			<h3>비밀번호 찾기</h3>
 		</div>
 		<div class=background></div>
 		<table class=searchPwTable>
 			<tr>
-				<th>아이디</th>
-				<td><input type="text" class=inp name="search_userId" id="mem_id"
+				<th>ID</th>
+				<td><input style="width: 150; height: 43px" type="text" class=inp name="search_userId" id="mem_id"
 					placeholder="아이디 입력란" /></td>
 			</tr>
 			<tr>
-				<td>EMAIL</td>
+				<th>EMAIL</th>
 				<td><input class="inputTxt" type="text" name="email"
-					id="first_email" style="width: 150" placeholder="이메일 입력란" /> @ <input
-					type="text" id="emailview" name="emailview" style="width: 100"
-					placeholder="이메일 선택" disabled="true" /> <select id="email">
+					id="first_email" style="width: 150; height: 43px" placeholder="이메일 입력란" /> @ <input
+					type="text" id="emailview" name="emailview" style="width: 150; height: 43px"
+					placeholder="이메일 선택" disabled="true" /> <select style="height: 43px" id="email">
 						<option value="0">이메일을 선택 하세요</option>
 						<option value="1">직접입력</option>
 						<option>naver.com</option>
@@ -107,14 +142,9 @@
 						<option>daum.net</option>
 				</select></td>
 			</tr>
+			
 			<tr>
-				<td colspan="2">
-					<hr />
-				</td>
-			</tr>
-			<tr>
-				<td colspan="2"><input type="button" id="searchPWbtn"
-					value="이메일 인증하기" /></td>
+				<td colspan="2"><input type="button" id="searchPWbtn"	value="이메일 인증하기" /></td>
 			</tr>
 		</table>
 	</div>

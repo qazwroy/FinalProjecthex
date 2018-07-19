@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -10,11 +11,14 @@
 
 <style>
 	#tab1{
-		margin-left: 45%;
-		margin-top: 5%;		
+		margin-left: 43.5%; 
+		margin-top: 5%;
+				
 	}
 	#tab1 table{
 		margin-left: -15%; 
+		border-spacing: 10px;
+		
 	}
 	
 	#overlay{
@@ -76,10 +80,11 @@
 		color: black;
 	}
 	#size{
-		margin-left: 0.5%;
+		margin-left: 1.5%;
 	}
 	#question{
-		width: 38%;		 
+		width: 38%;
+		height: 32%; 		 
 	}
 	#answer{
 		margin-left: 1%;
@@ -87,6 +92,26 @@
 	#tab3 a{
 		margin-top: -5%;
 	}
+	#mainimg{		
+		margin-left: 45%;
+		margin-top: 5%;
+		cursor: pointer;
+	}
+	#add{
+		border: 0;
+		outline: 0;
+		cursor: pointer;
+		background-color: black;
+		color: white;
+		height: 70%;
+		width: 21%; 
+		
+	}
+	#add:hover{
+		background-color: white;
+		color: black;
+	}
+	
 /* table, td, th {
 	border: 1px solid black;
 	border-collapse: collapse;
@@ -102,14 +127,19 @@ input.inputTxt {
 </style>
 </head>
 <body>
-<table>
-		<h2>회원가입</h2>
+
+<h2 id="mainimg" onclick="location.href='./'">슈마니커</h2>
+
+<div id="tab1">
+	<table>	
+		
+		
 		<tr>
-			<td>아이디</td>
-			<td><input style="width: 400" type="text" name="userId"
+			<td>아이디</td> 
+			<td><input style="width: 171.7" type="text" name="userId"
 				placeholder="아이디 입력란" /> <input id="overlay" type="button"
 				value="중복 체크" /></td>
-		</tr>
+		</tr> 
 		<tr>
 			<td>비밀번호</td>
 			<td><input class="inputTxt" type="password" name="userPw"
@@ -133,7 +163,7 @@ input.inputTxt {
 		<tr>
 			<td>신발 사이즈</td>
 			<td><input type="text" id="sizeview" name="sizeview"
-				style="width: 200" placeholder="사이즈를 선택하세요." disabled="true" /><select
+				style="width: 171.5" placeholder="사이즈를 선택하세요." disabled="true" /><select
 				id="size">
 					<option value="0">신발 사이즈를 선택하세요.</option>
 					<option value="1">직접입력</option>
@@ -161,7 +191,7 @@ input.inputTxt {
 		<tr>
 			<td>주소</td>
 			<td><input type="text" name="addr1" id="sample4_postcode"
-				placeholder="우편번호"> <input type="button"
+				placeholder="우편번호"> <input type="button" id="add"
 				onclick="sample4_execDaumPostcode()" value="우편번호 찾기"> <br>
 				<input type="text" name="addr2" id="sample4_roadAddress"
 				placeholder="도로명주소"> <input type="text" name="addr3"
@@ -173,8 +203,8 @@ input.inputTxt {
 		</tr>
 		<tr>
 			<td>EMAIL</td>
-			<td><input class="inputTxt" type="text" name="email"
-				id="first_email" style="width: 150" placeholder="이메일 입력란" /> @ <input
+			<td><input class="inputTxt" type="text" name="email" 
+				id="first_email" style="width: 171.5" placeholder="이메일 입력란" /> @ <input
 				type="text" id="emailview" name="emailview" style="width: 100"
 				placeholder="이메일 선택" disabled="true" /> <select id="email">
 					<option value="0">이메일을 선택 하세요</option>
@@ -206,14 +236,16 @@ input.inputTxt {
 					<option value="유년시절 내가 살던 동네는?">유년시절 내가 살던 동네는?</option>
 					<option value="가장 친한 친구의 이름은?">가장 친한 친구의 이름은?</option>
 					<option value="나의 별명은?">나의 별명은?</option>
-			</select><input type="text" name="answer" placeholder="질문 답변" /></td>
+			</select><input type="text" name="answer" id="answer" placeholder="질문 답변" /></td>
 		</tr>
 		<tr>
 			<td colspan="2">
 				<button id="join">회원가입</button>
 			</td>
-		</tr>
-	</table>
+			</tr>
+		</table>
+	</div>
+	
 </body>
 <script>
 var idReg = /^[a-z]+[a-z0-9]{5,19}$/g;
@@ -238,7 +270,7 @@ $("#email_send")
 					//window.open("open할 window", "자식창 이름", "팝업창 옵션");
 					openWin = window
 							.open("./mail_check", "childForm",
-									"width=700, height=200, resizable = no, scrollbars = no");
+									"width=700, height=200, resizable = no, scrollbars = no, left = 300, top= 200");
 
 				});
 
